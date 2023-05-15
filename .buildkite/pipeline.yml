@@ -1,7 +1,6 @@
-
 steps:
-  - name: ":python:"
-    command: "py.test"
-    plugins:
-      - docker-compose#v3.7.0:
-          run: app
+  - label: ":console:"
+    command: "script.sh"
+    parallelism: 5
+    agents:
+      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
